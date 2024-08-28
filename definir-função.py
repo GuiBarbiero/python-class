@@ -1,3 +1,5 @@
+#dEFINA A FUNÇÃO MATEMATICA DA FIGURA.
+
 def y(x):
     if x<=2:
         return x

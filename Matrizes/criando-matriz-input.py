@@ -13,7 +13,7 @@ for j in range(l): # percorre até o valor de l
 '''
 # Criar uma matriz com todos elementos iguais a zero (o usuario vai dizer a quantidade de linhas e colunas)
 L = int(input("Digite a quantidade de linhas da matriz: "))
-C = 10
+C = int(input("Digite a quantidade de linhas da matriz: "))
 
 matriz = []
 
