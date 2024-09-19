@@ -13,3 +13,8 @@ for i in range(quantidade):
     informações[nomes] = [idade,sexo]
 
 print(informações)
+
+# pegar a idade de alguem pelo dicionario
+
+print(informações['AA'][0]) # assim dentro da lista do AA eu pego a idade dela
+#por ser o primeiro elemento da losta
