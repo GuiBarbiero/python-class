@@ -21,6 +21,11 @@ print(r.text)
 
 '''
 import requests
-url = 'https://pokeapi.co/api/v2/pokemon/ditto'
+url = 'https://pokeapi.co/api/v2/pokemon/pikachu'
 r = requests.get(url)
-print(r.text)
+#print(r.json()) # ISSO PRINTA O JSON INTEIRO
+dicionario = r.json()
+print(dicionario['id'])
+print(dicionario['name'])
+print(dicionario['types'])
+
