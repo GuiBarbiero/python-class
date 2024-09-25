@@ -20,12 +20,22 @@ print(f'Resposta: {r}')
 print(r.text)
 
 '''
+
 import requests
-url = 'https://pokeapi.co/api/v2/pokemon/pikachu'
-r = requests.get(url)
-#print(r.json()) # ISSO PRINTA O JSON INTEIRO
-dicionario = r.json()
-print(dicionario['id'])
-print(dicionario['name'])
-print(dicionario['types'])
+def poke(pokemon):
+    url = f'https://pokeapi.co/api/v2/pokemon/{pokemon}'
+    r = requests.get(url)
+    #print(r.json()) # ISSO PRINTA O JSON INTEIROdicionario
+    r = r.json()
+    id = r['id']
+    tipo = r['types'][0]['type']['name']
+    return [id, tipo]
+
+pokemon = input("Diga o nome do pokemon desejado")
+var = poke(pokemon)
+
+print(f"o id do {pokemon} é {var[0]}.")
+print(f'{pokemon} é do tipo {var[1]}') # printa o tipo do pokemon no caso elétrico
+
+
 
