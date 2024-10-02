@@ -1,0 +1,126 @@
+1	Contar Palavras
+
+def contar_palavras(palavras):
+    contador = {}  # Cria um dicionário vazio para armazenar as contagens
+    for palavra in palavras:  # Itera sobre cada palavra na lista
+        if palavra in contador:  # Se a palavra já está no dicionário
+            contador[palavra] += 1  # Incrementa a contagem
+        else:
+            contador[palavra] = 1  # Adiciona a palavra ao dicionário com contagem 1
+    return contador  # Retorna o dicionário com as contagens
+
+# Exemplo de uso:
+palavras = ["casa", "carro", "casa", "bicicleta", "carro", "carro", "bicicleta"]
+print(contar_palavras(palavras))
+
+2	Filtrar Pessoas Maiores de Idade
+
+def filtrar_maiores_de_idade(pessoas):
+    # Retorna uma nova tupla contendo apenas as pessoas maiores de idade
+    return tuple(pessoa for pessoa in pessoas if pessoa[1] >= 18)
+
+# Exemplo de uso:
+pessoas = (("João", 19), ("Maria", 21), ("Pedro", 20), ("Ana", 18))
+print(filtrar_maiores_de_idade(pessoas))
+
+3	Bubble Sort para Números Inteiros
+
+def bubble_sort(lista):
+    n = len(lista)  # Obtém o tamanho da lista
+    for i in range(n):  # Itera sobre cada elemento
+        for j in range(0, n-i-1):  # Compara elementos adjacentes
+            if lista[j] > lista[j+1]:  # Se o elemento atual for maior que o próximo
+                lista[j], lista[j+1] = lista[j+1], lista[j]  # Troca os elementos
+    return lista  # Retorna a lista ordenada
+
+# Exemplo de uso:
+numeros = [64, 34, 25, 12, 22, 11, 90]
+print(bubble_sort(numeros))
+
+4	Soma de Pares
+
+def soma_pares(pares):
+    # Retorna uma lista com a soma de cada par de números nas tuplas
+    return [a + b for a, b in pares]
+
+# Exemplo de uso:
+pares = [(1, 2), (3, 4), (5, 6)]
+print(soma_pares(pares))
+
+5	Dicionário de Alunos e Notas
+
+def criar_dicionario_alunos(alunos, notas):
+    # Cria um dicionário onde as chaves são nomes dos alunos e os valores são suas notas
+    return {alunos[i]: notas[i] for i in range(len(alunos))}
+
+# Exemplo de uso:
+alunos = ["Ana", "Bruno", "Carlos", "Diana"]
+notas = [85, 90, 78, 92]
+print(criar_dicionario_alunos(alunos, notas))
+
+
+6	Atualizar Saldos
+
+def atualizar_saldos(saldos, movimentacoes):
+    # Atualiza o saldo das contas existentes e cria novas entradas conforme necessário
+    for conta, valor in movimentacoes.items():  # Itera sobre as movimentações
+        if conta in saldos:  # Se a conta já existe
+            saldos[conta] += valor  # Atualiza o saldo
+        else:
+            saldos[conta] = valor  # Cria nova conta com o valor inicial
+    return saldos  # Retorna o dicionário atualizado
+
+# Exemplo de uso:
+saldos = {"Conta A": 1000, "Conta B": 1500}
+movimentacoes = {"Conta A": -200, "Conta C": 500}
+print(atualizar_saldos(saldos, movimentacoes))
+
+7	Bubble Sort para Palavras
+
+def bubble_sort_palavras(palavras):
+    n = len(palavras)  # Obtém o tamanho da lista
+    for i in range(n):  # Itera sobre cada elemento
+        for j in range(0, n-i-1):  # Compara elementos adjacentes
+            if palavras[j] > palavras[j+1]:  # Se a palavra atual for maior que a próxima
+                palavras[j], palavras[j+1] = palavras[j+1], palavras[j]  # Troca as palavras
+    return palavras  # Retorna a lista ordenada
+
+# Exemplo de uso:
+palavras = ["banana", "maçã", "laranja", "uva", "abacaxi"]
+print(bubble_sort_palavras(palavras))
+
+8	Filtrar Produtos por Preço
+
+def filtrar_produtos(produtos, limite):
+    # Retorna um dicionário contendo apenas os produtos cujo preço seja maior que o limite
+    return {produto: preco for produto, preco in produtos.items() if preco > limite}
+
+# Exemplo de uso:
+produtos = {"banana": 2.50, "maçã": 3.20, "laranja": 1.80}
+limite = 2.00
+print(filtrar_produtos(produtos, limite))
+
+9		Tradução de RNA
+
+def traducao_rnaM(rna):
+    # Tabela simplificada de trincas de RNA para aminoácidos
+    tabela = {
+        "UUU": "Phe",
+        "CUU": "Leu",
+        "UUA": "Leu",
+        "AAG": "Lisina",
+        "UCU": "Ser",
+        "UAU": "Tyr",
+        "CAA": "Gln"
+    }
+    
+    aminoacidos = []  # Lista para armazenar os aminoácidos resultantes
+    for i in range(0, len(rna), 3):  # Itera a cada três caracteres (trinca)
+        trinca = rna[i:i+3]  # Extrai a trinca
+        if trinca in tabela:  # Se a trinca está na tabela
+            aminoacidos.append(tabela[trinca])  # Adiciona o aminoácido correspondente
+    
+    return '-'.join(aminoacidos)  # Retorna a cadeia de aminoácidos como string
+
+# Exemplo de uso:
+print(traducao_rnaM("UUUUUAUCU"))
